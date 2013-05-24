@@ -10,21 +10,12 @@ Usage
 select the .wav file you want to analyze and pass it as an input argument in bpm_detection function as follows:
 
 myfile = 'file.wav';
-[final_signal,correl,estBPM,cd] = bpm_detection(myfile)
+window = 3 # seconds
+>> bpm_detection(myfile, window)
 
-The above code should be executed in matlab's command line. 
+The above code should be executed in python's command line. 
 
 Output
 
-final_signal: the signal after the Discrete Wavelet Transform
-correl: Auto-correlation function's coefficients of the summed signal
-estBPM: the BMP of the input signal
-cd: The details coefficients of each level of DWT decomposition
+estBPM: the guess for the beats per minute
 
-Or you can use a shorter version, printing out only the BPM.
-
-myfile = 'file.wav';
-[estBPM] = bpm_detection(myfile)
-
-In order to achieve that, change the first line of the code in order to look like this: 
-function [estBPM]=bpm_detection(s)
